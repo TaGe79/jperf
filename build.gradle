@@ -1,0 +1,36 @@
+//buildscript {
+//    repositories {
+//        jcenter()
+//        maven {
+//            url "https://plugins.gradle.org/m2/"
+//        }
+//    }
+//}
+
+plugins {
+    id "com.github.johnrengelman.shadow" version "5.1.0"
+    id 'java'
+}
+
+group 'tage.org'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.openjdk.jol', name: 'jol-core', version: '0.9'
+    compile 'org.apache.commons:commons-csv:1.7'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+    compile 'com.google.caliper:caliper:0.5-rc1'
+}
+
+jar {
+    include './resources/*.csv'
+    manifest {
+        attributes 'Main-Class': 'org.tage.jperf.MicParsingTest'
+    }
+}
