@@ -93,12 +93,12 @@ public class MicParsingTest extends SimpleBenchmark {
     final Map<String, List<String>> result;
     switch (variant) {
       case 1:
-        System.out.println("---------------- timeParseMicFileApachePLow --------------------");
+        System.out.println("---------------- timeParseMicFileVanillaJava --------------------");
       {
         Runtime runtime = Runtime.getRuntime();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         System.out.println(String.format("Used Memory before: %,d", usedMemoryBefore));
-        Object[] ores = MicParsingTest.parseMicFileApachePLow();
+        Object[] ores = MicParsingTest.parseMicFileVanillaJava();
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         System.out.println(String.format("Memory increased: %,d", (usedMemoryAfter - usedMemoryBefore)));
         result = new HashMap<>();
@@ -143,9 +143,9 @@ public class MicParsingTest extends SimpleBenchmark {
       .collect(Collectors.joining("\n")));
   }
 
-  public void timeParseMicFileApachePLow(int perf) throws Exception {
+  public void timeParseMicFileVanillaJava(int perf) throws Exception {
     for (int i = 0; i < perf; i++) {
-      parseMicFileApachePLow();
+      parseMicFileVanillaJava();
     }
   }
 
@@ -194,7 +194,7 @@ public class MicParsingTest extends SimpleBenchmark {
     return countryMic;
   }
 
-  static Object[] parseMicFileApachePLow() throws Exception {
+  static Object[] parseMicFileVanillaJava() throws Exception {
     final char newline = '\n';
     final char comma = ',';
 
