@@ -27,9 +27,9 @@ public class PerfMain {
   private static void stringVsCharArray() {
     System.out.println(VM.current().details());
 
-    final String mic = new String("WORLDQUANT");
-    final String mic2 = new String("WORLDQUANT");
-    final char[] mica = new char[]{'W', 'O', 'R', 'L','D','Q','U','A','N','T'};
+    final String mic = new String("UMPALUMPA");
+    final String mic2 = new String("UMPALUMPA");
+    final char[] mica = new char[]{'U', 'M', 'P', 'A','L','U','M','P','A'};
     final char[] b = new char[]{};
 
     System.out.println("mic -------------------------------------------");
